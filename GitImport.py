@@ -1,17 +1,11 @@
 import subprocess
 import os
 
-aux = os.getcwd()
-
-print("Se encuentra en el directorio: "+aux)
-
-if os.path.isdir(aux+'/BaseDatos'):
-    os.chdir(aux+'/BaseDatos')
-else:
-    os.mkdir(aux+'/BaseDatos')
-    os.chdir(aux+'/BaseDatos')
-
 def instalador():
+    
+    aux = os.getcwd()
+
+    print("\nSe encuentra en el directorio: "+aux)
     
     aux2 = subprocess.call('apt list --installed | grep subversion',shell=True)
 
@@ -30,6 +24,4 @@ def instalador():
             instalador()
     
     print("Importando Datos")
-    subprocess.call("svn export --force https://github.com/MinCiencia/Datos-COVID19/branches/master/output/producto46/activos_vs_recuperados.csv", shell=True)
-
-instalador()
+    subprocess.call("svn export --force https://github.com/MinCiencia/Datos-COVID19/branches/master/output/producto5/TotalesNacionales_T.csv", shell=True)
